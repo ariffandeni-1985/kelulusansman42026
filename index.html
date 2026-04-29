@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan — SMAN 4 Tanjung Jabung Barat</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-darkest: #0a2e14;
+  --green-dark: #145a28;
+  --green-mid: #1e7d3c;
+  --green-bright: #27ae60;
+  --green-light: #2ecc71;
+  --green-pale: #a8e6c1;
+  --green-mist: #e8f8ef;
+  --gold: #f4c430;
+  --gold-light: #fde68a;
+  --white: #ffffff;
+  --off-white: #f8fdf9;
+  --text-dark: #0d1f12;
+  --text-mid: #2d5a3d;
+  --text-light: #6aab82;
+  --red: #e53935;
+  --red-bg: #ffebee;
+  --red-badge: #ffcdd2;
+  --red-text: #b71c1c;
+  --shadow-sm: 0 2px 8px rgba(10,46,20,0.10);
+  --shadow-md: 0 4px 24px rgba(10,46,20,0.13);
+  --shadow-lg: 0 8px 40px rgba(10,46,20,0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===================== HEADER ===================== */
+.pub-header {
+  position: relative;
+  background: linear-gradient(145deg, var(--green-darkest) 0%, var(--green-dark) 40%, var(--green-mid) 100%);
+  color: #fff;
+  padding: 2.8rem 1rem 2.2rem;
+  text-align: center;
+  overflow: hidden;
+}
+.pub-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(46,204,113,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(39,174,96,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.header-decor {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,204,113,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.header-decor2 {
+  position: absolute;
+  bottom: -50px; left: -30px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244,196,48,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pub-logo-wrap {
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+.pub-logo-wrap img {
+  max-height: 100px;
+  max-width: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 8px;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.15), var(--shadow-md);
+}
+.pub-logo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px; height: 90px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 50%;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  border: 2px dashed rgba(255,255,255,0.35);
+}
+
+.pub-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+.pub-subtitle {
+  font-size: 13px;
+  opacity: 0.8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+.pub-tahun {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  color: var(--gold);
+  background: rgba(244,196,48,0.12);
+  border: 1.5px solid rgba(244,196,48,0.35);
+  padding: 4px 18px;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+/* stats-bar removed */
+
+/* ===================== SEARCH ===================== */
+.search-section {
+  background: #fff;
+  padding: 1.4rem 1rem;
+  border-bottom: 1px solid rgba(39,174,96,0.10);
+}
+.search-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+}
+.search-wrap input {
+  flex: 1;
+  padding: 11px 16px;
+  border: 1.5px solid rgba(39,174,96,0.3);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+}
+.search-wrap input:focus {
+  outline: none;
+  border-color: var(--green-bright);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(39,174,96,0.10);
+}
+.search-wrap input::placeholder { color: #aac8b5; }
+.btn-search {
+  padding: 11px 22px;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.2s, transform 0.1s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.btn-search:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-search:active { transform: translateY(0); }
+
+/* ===================== RESULT ===================== */
+.result-section {
+  max-width: 760px;
+  margin: 1.6rem auto;
+  padding: 0 1rem;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.result-table-wrap {
+  background: #fff;
+  border: 1px solid rgba(39,174,96,0.15);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  animation: slideIn 0.3s ease;
+  overflow-x: auto;
+}
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.result-table thead tr {
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+}
+.result-table th {
+  padding: 12px 14px;
+  text-align: left;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.result-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid rgba(39,174,96,0.08);
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+.result-table tr:last-child td { border-bottom: none; }
+.result-table tr:hover td { background: var(--green-mist); }
+.result-table .td-nama { font-weight: 700; font-family: 'Playfair Display', serif; font-size: 15px; }
+.result-table .td-nisn { font-family: monospace; font-size: 13px; color: var(--text-mid); }
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.badge-lulus { background: var(--green-pale); color: var(--green-darkest); }
+.badge-tidak { background: var(--red-badge); color: var(--red-text); }
+
+.empty-state { text-align: center; padding: 3rem 1rem; color: var(--text-light); }
+.empty-icon { font-size: 44px; margin-bottom: 14px; }
+.empty-msg { font-size: 15px; line-height: 1.6; }
+
+/* ===================== ADMIN BTN ===================== */
+.pub-admin-btn {
+  position: fixed;
+  bottom: 18px; right: 18px;
+  background: var(--green-darkest);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(10,46,20,0.35);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.2s, transform 0.1s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.pub-admin-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+/* ===================== LOGIN OVERLAY ===================== */
+#login-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10,46,20,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.2rem;
+  width: 340px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1.5px solid rgba(39,174,96,0.15);
+}
+.login-icon { font-size: 36px; margin-bottom: 10px; }
+.login-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; color: var(--text-dark); }
+.login-sub { font-size: 13px; color: var(--text-light); margin-bottom: 1.5rem; }
+.login-card input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid rgba(39,174,96,0.3);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+}
+.login-card input:focus { outline: none; border-color: var(--green-bright); box-shadow: 0 0 0 3px rgba(39,174,96,0.10); }
+.btn-login {
+  width: 100%;
+  background: linear-gradient(135deg, var(--green-dark), var(--green-bright));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.2s;
+}
+.btn-login:hover { opacity: 0.9; }
+.login-err { color: var(--red); font-size: 13px; margin-top: 8px; display: none; }
+
+/* ===================== ADMIN PAGE ===================== */
+#admin-page { display: none; }
+.admin-nav {
+  background: linear-gradient(90deg, var(--green-darkest), var(--green-dark));
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.nav-link { font-size: 13px; color: rgba(255,255,255,0.75); cursor: pointer; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); transition: color 0.2s; }
+.nav-link:hover { color: #fff; }
+
+.admin-tabs {
+  display: flex;
+  background: #fff;
+  border-bottom: 2px solid var(--green-mist);
+}
+.tab-btn {
+  padding: 0.85rem 1.3rem;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: color 0.2s;
+}
+.tab-btn.active { color: var(--green-mid); border-bottom-color: var(--green-bright); }
+
+.admin-body { padding: 1.4rem 1rem; max-width: 700px; margin: 0 auto; }
+
+.section-card {
+  background: #fff;
+  border: 1px solid rgba(39,174,96,0.13);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  margin-bottom: 1.4rem;
+  box-shadow: var(--shadow-sm);
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--green-mist);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-label { font-size: 13px; color: var(--text-mid); margin-bottom: 5px; display: block; font-weight: 600; }
+.form-input {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1.5px solid rgba(39,174,96,0.25);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-dark);
+  background: var(--off-white);
+  transition: border-color 0.2s;
+}
+.form-input:focus { outline: none; border-color: var(--green-bright); background: #fff; box-shadow: 0 0 0 3px rgba(39,174,96,0.08); }
+
+/* ===================== UPLOAD ZONE ===================== */
+.upload-zone {
+  border: 2.5px dashed rgba(39,174,96,0.3);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--green-mist);
+  display: block;
+}
+.upload-zone:hover { border-color: var(--green-bright); background: #d4f0e2; }
+.upload-zone input { display: none; }
+.upload-icon { font-size: 34px; margin-bottom: 10px; }
+.upload-text { font-size: 14px; color: var(--text-mid); font-weight: 600; }
+.upload-sub { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+.logo-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: var(--green-mist);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(39,174,96,0.15);
+}
+.logo-preview img {
+  max-height: 64px;
+  max-width: 64px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 5px;
+  border: 1px solid rgba(39,174,96,0.2);
+}
+.logo-name { font-size: 13px; color: var(--text-light); margin-top: 2px; }
+
+.btn-save {
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.2s, transform 0.1s;
+}
+.btn-save:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-save.gray { background: #546e7a; }
+.btn-save.gray:hover { background: #455a64; }
+
+/* ===================== TABLE ===================== */
+.data-table-wrap { overflow-x: auto; margin-top: 8px; }
+.data-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.data-table th {
+  background: var(--green-mist);
+  padding: 9px 11px;
+  text-align: left;
+  color: var(--green-dark);
+  font-weight: 700;
+  border-bottom: 2px solid rgba(39,174,96,0.15);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.data-table td { padding: 9px 11px; border-bottom: 1px solid rgba(39,174,96,0.08); color: var(--text-dark); }
+.data-table tr:hover td { background: var(--green-mist); }
+.badge-l { background: var(--green-pale); color: var(--green-darkest); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.badge-t { background: var(--red-badge); color: var(--red-text); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+.data-count { font-size: 13px; color: var(--text-light); margin-bottom: 10px; font-weight: 500; }
+
+/* ===================== ALERT ===================== */
+.alert { padding: 11px 15px; border-radius: var(--radius-sm); font-size: 13px; margin-top: 10px; display: none; font-weight: 500; }
+.alert.success { background: #d4f0e2; color: var(--green-darkest); border: 1px solid rgba(39,174,96,0.25); display: block; }
+.alert.error   { background: var(--red-bg); color: var(--red-text); border: 1px solid rgba(229,57,53,0.2); display: block; }
+.alert.info    { background: #e3f2fd; color: #0d47a1; border: 1px solid rgba(33,150,243,0.2); display: block; }
+
+.template-hint {
+  background: #fffbeb;
+  border: 1px solid rgba(244,196,48,0.4);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 13px;
+  color: #5c4a00;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* ===================== FOOTER ===================== */
+.pub-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-light);
+  font-size: 12px;
+  border-top: 1px solid rgba(39,174,96,0.10);
+  margin-top: 2rem;
+}
+.pub-footer span { color: var(--green-mid); font-weight: 600; }
+
+/* ===================== HOSTING INFO ===================== */
+.hosting-note {
+  background: linear-gradient(135deg, var(--green-darkest), var(--green-dark));
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.4rem;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.hosting-note strong { color: var(--gold); }
+.hosting-note code {
+  background: rgba(255,255,255,0.1);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 480px) {
+  .pub-title { font-size: 18px; }
+  .pub-tahun { font-size: 16px; }
+  .search-wrap { flex-direction: column; }
+  .btn-search { width: 100%; }
+  .stat-num { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div id="login-overlay" style="display:none">
+  <div class="login-card">
+    <div class="login-icon">🔐</div>
+    <div class="login-title">Panel Admin</div>
+    <div class="login-sub">Masukkan password untuk mengakses panel admin</div>
+    <input type="password" id="pw-input" placeholder="Password admin" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn-login" onclick="doLogin()">Masuk ke Panel Admin</button>
+    <div class="login-err" id="login-err">⚠ Password salah! Coba lagi.</div>
+    <p style="font-size:12px;color:#aac8b5;margin-top:1.2rem;cursor:pointer" onclick="document.getElementById('login-overlay').style.display='none'">✕ Batal</p>
+  </div>
+</div>
+
+<!-- ===================== PUBLIC PAGE ===================== -->
+<div id="public-page">
+  <div class="pub-header">
+    <div class="header-decor"></div>
+    <div class="header-decor2"></div>
+
+    <div class="pub-logo-wrap" id="pub-logo-area">
+      <!-- Logo akan dimuat dari URL default -->
+      <img id="pub-logo-img" src="https://i.ibb.co.com/HLHqy5D8/LOGO-SMAN-4-TJB-RESMI.png"
+           alt="Logo SMAN 4 Tanjung Jabung Barat"
+           onerror="this.style.display='none';document.getElementById('pub-logo-placeholder').style.display='flex'">
+      <div class="pub-logo-placeholder" id="pub-logo-placeholder" style="display:none">LOGO</div>
+    </div>
+
+    <div class="pub-title" id="pub-sekolah-nama">SMA NEGERI 4 TANJUNG JABUNG BARAT</div>
+    <div class="pub-subtitle" id="pub-sekolah-sub">Pengumuman Kelulusan</div>
+    <div class="pub-tahun" id="pub-tahun-text">TAHUN PELAJARAN 2025/2026</div>
+  </div>
+
+  <!-- Stats bar removed from public view -->
+
+  <div class="search-section">
+    <div class="search-wrap">
+      <input type="text" id="search-input" placeholder="🔍  Masukkan NISN siswa..." oninput="searchSiswa()">
+      <button class="btn-search" onclick="searchSiswa()">Cari</button>
+    </div>
+  </div>
+
+  <div class="result-section" id="result-section">
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">🎓</div>
+      <div class="empty-msg">Masukkan NISN untuk melihat status kelulusan</div>
+    </div>
+    <div id="result-container"></div>
+  </div>
+
+  <div class="pub-footer">
+    Sistem Pengumuman Kelulusan &mdash; <span>SMAN 4 Tanjung Jabung Barat</span>
+  </div>
+
+  <button class="pub-admin-btn" onclick="showAdminLogin()">⚙ Admin</button>
+</div>
+
+<!-- ===================== ADMIN PAGE ===================== -->
+<div id="admin-page">
+  <div class="admin-nav">
+    <div class="admin-title">⚙ Panel Admin — Pengumuman Kelulusan</div>
+    <span class="nav-link" onclick="showPublic()">← Lihat Halaman Publik</span>
+  </div>
+
+  <div class="admin-tabs">
+    <button class="tab-btn active" onclick="switchTab('tab-logo',this)">🖼 Logo & Info</button>
+    <button class="tab-btn" onclick="switchTab('tab-data',this)">📊 Data Siswa</button>
+    <button class="tab-btn" onclick="switchTab('tab-preview',this)">👁 Preview Data</button>
+    <button class="tab-btn" onclick="switchTab('tab-panduan',this)">📌 Panduan Hosting</button>
+  </div>
+
+  <div class="admin-body">
+
+    <!-- TAB LOGO & INFO -->
+    <div id="tab-logo">
+      <div class="section-card">
+        <div class="section-title">🖼 Logo Sekolah</div>
+        <label class="upload-zone" for="logo-upload">
+          <input type="file" id="logo-upload" accept="image/*" onchange="handleLogoUpload(event)">
+          <div class="upload-icon">🖼</div>
+          <div class="upload-text">Klik untuk pilih gambar logo baru</div>
+          <div class="upload-sub">PNG, JPG, SVG (maks. 2MB)</div>
+        </label>
+        <div class="logo-preview" id="logo-preview-area" style="display:none">
+          <img id="logo-preview-img" src="" alt="Logo Preview">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--text-dark)">Logo berhasil dimuat</div>
+            <div class="logo-name" id="logo-file-name"></div>
+            <button onclick="removeLogo()" style="font-size:12px;color:var(--red);background:none;border:none;cursor:pointer;padding:0;margin-top:5px;font-family:'Plus Jakarta Sans',sans-serif;">Hapus logo</button>
+          </div>
+        </div>
+        <button class="btn-save" onclick="saveLogo()">💾 Simpan Logo</button>
+        <div class="alert" id="alert-logo"></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">🏫 Informasi Sekolah</div>
+        <div class="form-group">
+          <label class="form-label">Nama Sekolah</label>
+          <input type="text" class="form-input" id="inp-nama-sekolah" placeholder="SMA NEGERI 4 TANJUNG JABUNG BARAT">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Keterangan</label>
+          <input type="text" class="form-input" id="inp-keterangan" placeholder="Pengumuman Kelulusan">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tahun Pelajaran</label>
+          <input type="text" class="form-input" id="inp-tahun" placeholder="2025/2026">
+        </div>
+        <div class="form-group">
+          <label class="form-label">🔑 Password Admin (biarkan kosong jika tidak ingin ganti)</label>
+          <input type="password" class="form-input" id="inp-password" placeholder="Ubah password admin">
+        </div>
+        <button class="btn-save" onclick="saveInfo()">💾 Simpan Informasi</button>
+        <div class="alert" id="alert-info"></div>
+      </div>
+    </div>
+
+    <!-- TAB DATA SISWA -->
+    <div id="tab-data" style="display:none">
+      <div class="section-card">
+        <div class="section-title">📊 Upload Data Siswa (.xlsx / .xls)</div>
+        <div class="template-hint">
+          📋 <strong>Format kolom Excel yang diperlukan:</strong><br>
+          <strong>NISN</strong> | <strong>Nama</strong> | <strong>Tempat Lahir</strong> | <strong>Tanggal Lahir</strong> | Jurusan | Kelas | <strong>Status</strong> (LULUS / TIDAK LULUS)<br>
+          <span style="color:#7c6000;font-size:12px;margin-top:4px;display:block">⚠ Kolom wajib: NISN, Nama, dan Status. Kolom lainnya opsional.</span>
+        </div>
+        <label class="upload-zone" for="xlsx-upload">
+          <input type="file" id="xlsx-upload" accept=".xlsx,.xls" onchange="handleXlsxUpload(event)">
+          <div class="upload-icon">📂</div>
+          <div class="upload-text">Klik untuk pilih file Excel (.xlsx atau .xls)</div>
+          <div class="upload-sub">Pastikan format kolom sesuai petunjuk di atas</div>
+        </label>
+        <button class="btn-save" onclick="saveData()" style="margin-top:14px">✅ Simpan & Publish Data Siswa</button>
+        <div class="alert" id="alert-data"></div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">⬇ Download Template Excel</div>
+        <p style="font-size:13px;color:var(--text-light);margin-bottom:14px;line-height:1.6">Unduh template Excel yang sudah sesuai format. Isi data siswa, lalu upload kembali di atas.</p>
+        <button class="btn-save gray" onclick="downloadTemplate()">⬇ Download Template .xlsx</button>
+      </div>
+    </div>
+
+    <!-- TAB PREVIEW -->
+    <div id="tab-preview" style="display:none">
+      <div class="section-card">
+        <div class="section-title">👁 Preview Data Siswa</div>
+        <div id="preview-empty" class="empty-state" style="padding:2rem 0">
+          <div class="empty-icon">📂</div>
+          <div class="empty-msg">Belum ada data. Upload file .xlsx di tab <strong>Data Siswa</strong>.</div>
+        </div>
+        <div id="preview-content" style="display:none">
+          <div class="data-count" id="data-count-label"></div>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>No</th><th>NISN</th><th>Nama</th><th>Jurusan</th><th>Kelas</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="preview-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB PANDUAN HOSTING -->
+    <div id="tab-panduan" style="display:none">
+      <div class="hosting-note">
+        <strong>📌 Cara Hosting Situs Ini Agar Bisa Diakses Siswa</strong><br><br>
+        Situs ini adalah file HTML tunggal (<code>index.html</code>) yang bisa dihosting gratis menggunakan layanan berikut:
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">🌐 Opsi 1 — Netlify (Rekomendasi, Gratis)</div>
+        <ol style="font-size:14px;color:var(--text-mid);line-height:2;padding-left:1.2rem">
+          <li>Buka <strong>netlify.com</strong> dan daftar akun gratis</li>
+          <li>Di dashboard, klik <strong>"Add new site" → "Deploy manually"</strong></li>
+          <li>Drag & drop file <code>index.html</code> ke area upload</li>
+          <li>Situs langsung aktif dengan URL seperti <code>random-name.netlify.app</code></li>
+          <li>Bisa ubah nama domain menjadi nama sekolah (misalnya: <code>kelulusan-sman4tjb.netlify.app</code>)</li>
+        </ol>
+        <div class="alert info" style="display:block;margin-top:12px">✅ <strong>Gratis selamanya</strong> untuk situs statis. Tidak perlu bayar hosting.</div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">🌐 Opsi 2 — GitHub Pages (Gratis)</div>
+        <ol style="font-size:14px;color:var(--text-mid);line-height:2;padding-left:1.2rem">
+          <li>Buat akun di <strong>github.com</strong></li>
+          <li>Buat repository baru, upload file <code>index.html</code></li>
+          <li>Masuk ke <strong>Settings → Pages → Source: main / root</strong></li>
+          <li>URL: <code>username.github.io/nama-repo</code></li>
+        </ol>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title">⚠ Catatan Penting Tentang Data</div>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.8">
+          Situs ini menggunakan <strong>storage lokal Claude Artifact</strong> untuk menyimpan data. Jika dihosting ke Netlify/GitHub Pages, data siswa yang diunggah melalui panel admin <strong>tidak akan tersimpan</strong> secara permanen karena tidak ada database backend.<br><br>
+          <strong>Solusi:</strong> Untuk hosting mandiri, tambahkan backend sederhana (misalnya Firebase Firestore atau Google Sheets API) atau ganti mekanisme penyimpanan dengan <code>localStorage</code> di browser.
+        </p>
+        <div class="alert error" style="display:block;margin-top:12px">
+          ⚡ Hubungi pengembang untuk membantu integrasi database agar data siswa bisa disimpan secara permanen di server.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY_DATA = 'kelulusan_siswa_data';
+const STORAGE_KEY_INFO = 'kelulusan_info';
+const STORAGE_KEY_LOGO = 'kelulusan_logo';
+const DEFAULT_PASS = 'admin123';
+const DEFAULT_LOGO_URL = 'https://i.ibb.co.com/HLHqy5D8/LOGO-SMAN-4-TJB-RESMI.png';
+
+let tempLogoData = null;
+let tempStudents = [];
+
+/* ---- STORAGE HELPERS ---- */
+async function storageGet(key) {
+  try { return await window.storage.get(key, true); } catch(e) { return null; }
+}
+async function storageSet(key, val) {
+  try { return await window.storage.set(key, val, true); } catch(e) { return null; }
+}
+
+/* ---- LOAD ON START ---- */
+async function loadFromStorage() {
+  // Info
+  const r1 = await storageGet(STORAGE_KEY_INFO);
+  if (r1) { try { applyInfo(JSON.parse(r1.value)); } catch(e){} }
+
+  // Logo
+  const r2 = await storageGet(STORAGE_KEY_LOGO);
+  if (r2 && r2.value && r2.value !== 'default') {
+    applyLogo(r2.value);
+  }
+  // else: default logo sudah terpasang di HTML
+
+  // Data
+  const r3 = await storageGet(STORAGE_KEY_DATA);
+  if (r3) {
+    try {
+      const students = JSON.parse(r3.value);
+      tempStudents = students;
+      updateStatsBar(students);
+    } catch(e) {}
+  }
+}
+
+/* ---- APPLY INFO ---- */
+function applyInfo(info) {
+  if (info.namaSekolah) {
+    document.getElementById('pub-sekolah-nama').textContent = info.namaSekolah;
+    document.getElementById('inp-nama-sekolah').value = info.namaSekolah;
+  }
+  if (info.keterangan) {
+    document.getElementById('pub-sekolah-sub').textContent = info.keterangan;
+    document.getElementById('inp-keterangan').value = info.keterangan;
+  }
+  if (info.tahun) {
+    document.getElementById('pub-tahun-text').textContent = 'TAHUN PELAJARAN ' + info.tahun;
+    document.getElementById('inp-tahun').value = info.tahun;
+  }
+}
+
+/* ---- APPLY LOGO ---- */
+function applyLogo(dataUrl) {
+  const img = document.getElementById('pub-logo-img');
+  img.src = dataUrl;
+  img.style.display = '';
+  document.getElementById('pub-logo-placeholder').style.display = 'none';
+  tempLogoData = dataUrl;
+  document.getElementById('logo-preview-img').src = dataUrl;
+  document.getElementById('logo-preview-area').style.display = 'flex';
+}
+
+function removeLogo() {
+  tempLogoData = null;
+  document.getElementById('logo-preview-area').style.display = 'none';
+  // Kembalikan ke logo default
+  const img = document.getElementById('pub-logo-img');
+  img.src = DEFAULT_LOGO_URL;
+  img.style.display = '';
+}
+
+function handleLogoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) { showAlert('alert-logo', 'File terlalu besar (maks 2MB)', 'error'); return; }
+  const reader = new FileReader();
+  reader.onload = ev => {
+    tempLogoData = ev.target.result;
+    document.getElementById('logo-preview-img').src = tempLogoData;
+    document.getElementById('logo-file-name').textContent = file.name;
+    document.getElementById('logo-preview-area').style.display = 'flex';
+  };
+  reader.readAsDataURL(file);
+}
+
+async function saveLogo() {
+  if (!tempLogoData) { showAlert('alert-logo', 'Pilih gambar logo terlebih dahulu', 'error'); return; }
+  const r = await storageSet(STORAGE_KEY_LOGO, tempLogoData);
+  if (r) {
+    applyLogo(tempLogoData);
+    showAlert('alert-logo', '✓ Logo berhasil disimpan dan terlihat di halaman publik!', 'success');
+  } else {
+    showAlert('alert-logo', 'Gagal menyimpan logo', 'error');
+  }
+}
+
+/* ---- SAVE INFO ---- */
+async function saveInfo() {
+  const info = {
+    namaSekolah: document.getElementById('inp-nama-sekolah').value || 'SMA NEGERI 4 TANJUNG JABUNG BARAT',
+    keterangan:  document.getElementById('inp-keterangan').value  || 'Pengumuman Kelulusan',
+    tahun:       document.getElementById('inp-tahun').value       || '2025/2026',
+  };
+  const newPass = document.getElementById('inp-password').value;
+  if (newPass) info.password = newPass;
+
+  const r = await storageSet(STORAGE_KEY_INFO, JSON.stringify(info));
+  if (r) {
+    applyInfo(info);
+    showAlert('alert-info', '✓ Informasi berhasil disimpan!', 'success');
+    document.getElementById('inp-password').value = '';
+  } else {
+    showAlert('alert-info', 'Gagal menyimpan informasi', 'error');
+  }
+}
+
+/* ---- UPLOAD XLSX ---- */
+function handleXlsxUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const wb = XLSX.read(ev.target.result, { type: 'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      if (rows.length < 2) { showAlert('alert-data', 'File kosong atau tidak ada data siswa', 'error'); return; }
+
+      const header = rows[0].map(h => (h || '').toString().toLowerCase().trim());
+      const nisnIdx        = findCol(header, ['nisn']);
+      const namaIdx        = findCol(header, ['nama', 'name']);
+      const statusIdx      = findCol(header, ['status']);
+      const jurusanIdx     = findCol(header, ['jurusan', 'program', 'kompetensi']);
+      const kelasIdx       = findCol(header, ['kelas', 'class']);
+      const tempatLahirIdx = findCol(header, ['tempat lahir', 'tempat_lahir', 'tempatlahir', 'ttl', 'tempat']);
+      const tglLahirIdx   = findCol(header, ['tanggal lahir', 'tanggal_lahir', 'tgl lahir', 'tgllahir', 'tgl_lahir', 'lahir', 'tanggal']);
+
+      if (nisnIdx < 0 || namaIdx < 0 || statusIdx < 0) {
+        showAlert('alert-data', '⚠ Kolom wajib tidak ditemukan. Pastikan ada kolom: NISN, Nama, Status', 'error');
+        return;
+      }
+
+      tempStudents = [];
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const nisn  = String(row[nisnIdx]  || '').trim();
+        const nama  = String(row[namaIdx]  || '').trim();
+        const status = String(row[statusIdx] || '').trim().toUpperCase();
+        if (!nisn && !nama) continue;
+
+        // Format tanggal lahir: bisa berupa number (Excel serial) atau string
+        let tglLahir = '';
+        if (tglLahirIdx >= 0 && row[tglLahirIdx] !== undefined && row[tglLahirIdx] !== '') {
+          const raw = row[tglLahirIdx];
+          if (typeof raw === 'number') {
+            // Excel date serial number
+            const date = XLSX.SSF.parse_date_code(raw);
+            if (date) {
+              const d = String(date.d).padStart(2,'0');
+              const m = String(date.m).padStart(2,'0');
+              tglLahir = `${d}/${m}/${date.y}`;
+            }
+          } else {
+            tglLahir = String(raw).trim();
+          }
+        }
+
+        tempStudents.push({
+          nisn, nama,
+          jurusan:      jurusanIdx     >= 0 ? String(row[jurusanIdx]     || '').trim() : '',
+          kelas:        kelasIdx       >= 0 ? String(row[kelasIdx]       || '').trim() : '',
+          tempatLahir:  tempatLahirIdx >= 0 ? String(row[tempatLahirIdx] || '').trim() : '',
+          tglLahir,
+          status:  status.includes('TIDAK') ? 'TIDAK LULUS' : 'LULUS'
+        });
+      }
+
+      showAlert('alert-data', `✓ ${tempStudents.length} data siswa berhasil dibaca. Klik "Simpan & Publish" untuk menyimpan.`, 'info');
+      renderPreview();
+      updateStatsBar(tempStudents);
+    } catch(err) {
+      showAlert('alert-data', 'Gagal membaca file: ' + err.message, 'error');
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function findCol(header, keywords) {
+  for (let k of keywords) {
+    const i = header.findIndex(h => h.includes(k));
+    if (i >= 0) return i;
+  }
+  return -1;
+}
+
+async function saveData() {
+  if (!tempStudents || tempStudents.length === 0) {
+    showAlert('alert-data', 'Belum ada data. Upload file .xlsx dulu.', 'error');
+    return;
+  }
+  const r = await storageSet(STORAGE_KEY_DATA, JSON.stringify(tempStudents));
+  if (r) {
+    showAlert('alert-data', `✓ ${tempStudents.length} data berhasil disimpan dan dipublikasikan!`, 'success');
+    updateStatsBar(tempStudents);
+  } else {
+    showAlert('alert-data', 'Gagal menyimpan data', 'error');
+  }
+}
+
+/* ---- RENDER PREVIEW ---- */
+function renderPreview() {
+  if (!tempStudents || tempStudents.length === 0) {
+    document.getElementById('preview-empty').style.display = 'block';
+    document.getElementById('preview-content').style.display = 'none';
+    return;
+  }
+  document.getElementById('preview-empty').style.display = 'none';
+  document.getElementById('preview-content').style.display = 'block';
+  const lulus = tempStudents.filter(s => s.status === 'LULUS').length;
+  document.getElementById('data-count-label').textContent =
+    `Total: ${tempStudents.length} siswa | Lulus: ${lulus} | Tidak Lulus: ${tempStudents.length - lulus}`;
+  const tbody = document.getElementById('preview-tbody');
+  tbody.innerHTML = tempStudents.slice(0, 100).map((s, i) => `
+    <tr>
+      <td style="color:var(--text-light)">${i + 1}</td>
+      <td style="font-family:monospace">${s.nisn}</td>
+      <td style="font-weight:600">${s.nama}</td>
+      <td>${s.jurusan}</td>
+      <td>${s.kelas}</td>
+      <td><span class="${s.status === 'LULUS' ? 'badge-l' : 'badge-t'}">${s.status}</span></td>
+    </tr>`).join('');
+  if (tempStudents.length > 100) {
+    tbody.innerHTML += `<tr><td colspan="6" style="text-align:center;color:var(--text-light);font-size:12px;padding:10px">...dan ${tempStudents.length - 100} data lainnya tidak ditampilkan</td></tr>`;
+  }
+}
+
+/* ---- STATS (admin only, hidden from public) ---- */
+function updateStatsBar(students) {
+  // Stats bar tidak ditampilkan di halaman publik
+}
+
+/* ---- SEARCH ---- */
+function searchSiswa() {
+  const q = document.getElementById('search-input').value.trim();
+  const container = document.getElementById('result-container');
+  const empty = document.getElementById('empty-state');
+
+  if (!q) { container.innerHTML = ''; empty.style.display = 'block'; return; }
+
+  if (!tempStudents || tempStudents.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-msg">Belum ada data siswa.<br>Hubungi admin sekolah.</div></div>';
+    empty.style.display = 'none';
+    return;
+  }
+
+  const found = tempStudents.filter(s => s.nisn === q);
+  empty.style.display = 'none';
+
+  if (found.length === 0) {
+    container.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-msg">NISN tidak ditemukan.<br>Periksa kembali nomor NISN Anda.</div></div>';
+    return;
+  }
+
+  const rows = found.map(s => `
+    <tr>
+      <td class="td-nama">${s.nama}</td>
+      <td class="td-nisn">${s.nisn}</td>
+      <td>${s.tempatLahir || '-'}</td>
+      <td>${s.tglLahir || '-'}</td>
+      <td>
+        <span class="result-badge ${s.status === 'LULUS' ? 'badge-lulus' : 'badge-tidak'}">
+          ${s.status === 'LULUS' ? '🎉' : '❌'} ${s.status}
+        </span>
+      </td>
+    </tr>`).join('');
+
+  container.innerHTML = `
+    <div class="result-table-wrap">
+      <table class="result-table">
+        <thead>
+          <tr>
+            <th>Nama Siswa</th>
+            <th>NISN</th>
+            <th>Tempat Lahir</th>
+            <th>Tanggal Lahir</th>
+            <th>Status Kelulusan</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+/* ---- DOWNLOAD TEMPLATE ---- */
+function downloadTemplate() {
+  const ws = XLSX.utils.aoa_to_sheet([
+    ['NISN', 'Nama', 'Tempat Lahir', 'Tanggal Lahir', 'Jurusan', 'Kelas', 'Status'],
+    ['1234567890', 'AHMAD FAUZI',   'Jambi',       '01/01/2007', 'IPA',    'XII IPA 1', 'LULUS'],
+    ['0987654321', 'SITI RAHAYU',   'Kuala Tungkal','15/03/2007', 'IPS',    'XII IPS 2', 'LULUS'],
+    ['1122334455', 'BUDI SANTOSO',  'Tanjung Jabung','22/06/2006','BAHASA', 'XII BHS 1', 'TIDAK LULUS'],
+  ]);
+  ws['!cols'] = [{ wch: 14 }, { wch: 30 }, { wch: 18 }, { wch: 16 }, { wch: 12 }, { wch: 12 }, { wch: 15 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Data Siswa');
+  XLSX.writeFile(wb, 'template_kelulusan.xlsx');
+}
+
+/* ---- ALERT ---- */
+function showAlert(id, msg, type) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.className = 'alert ' + type;
+  setTimeout(() => { el.className = 'alert'; }, 6000);
+}
+
+/* ---- TABS ---- */
+function switchTab(id, btn) {
+  ['tab-logo', 'tab-data', 'tab-preview', 'tab-panduan'].forEach(t =>
+    document.getElementById(t).style.display = 'none'
+  );
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).style.display = 'block';
+  btn.classList.add('active');
+  if (id === 'tab-preview') renderPreview();
+}
+
+/* ---- LOGIN ---- */
+async function getAdminPassword() {
+  try {
+    const r = await storageGet(STORAGE_KEY_INFO);
+    if (r) { const info = JSON.parse(r.value); if (info.password) return info.password; }
+  } catch(e) {}
+  return DEFAULT_PASS;
+}
+
+async function doLogin() {
+  const pw = document.getElementById('pw-input').value;
+  const correct = await getAdminPassword();
+  if (pw === correct) {
+    document.getElementById('login-overlay').style.display = 'none';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('login-err').style.display = 'none';
+    showAdmin();
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+  }
+}
+
+function showAdminLogin() {
+  document.getElementById('login-overlay').style.display = 'flex';
+  setTimeout(() => document.getElementById('pw-input').focus(), 100);
+}
+
+function showAdmin() {
+  document.getElementById('public-page').style.display = 'none';
+  document.getElementById('admin-page').style.display = 'block';
+}
+
+function showPublic() {
+  document.getElementById('admin-page').style.display = 'none';
+  document.getElementById('public-page').style.display = 'block';
+}
+
+// Init
+loadFromStorage();
+</script>
+</body>
+</html>
